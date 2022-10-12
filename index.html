@@ -40,7 +40,7 @@
             <h3>Booking Flights</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
             </div>
             <div class="input-group">
                 <label for="">Flying To</label>
@@ -70,9 +70,9 @@
             
             <div class="input-group f-class">
                 <div>
-                    <label for="">Economy <span id="general-cost">($100)</span></label><br>
+                    <label for="">Economy <span id="economy-cost">($100)</span></label><br>
                     <button onclick="ticketQty('general',false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                    <input id="general-count" class="inp-style inp-width" name="" value="1">
+                    <input id="economy-count" class="inp-style inp-width" name="" value="1">
                     <button onclick="ticketQty('general',true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
                 </div>
                  
@@ -92,7 +92,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <h5>$<span id="vat-total">25</span></h5>
+                        <h5>$<span id="vat">25</span></h5>
                     </div>
                 </div>
                 <hr>
@@ -133,7 +133,7 @@
         if (ticket == 'vip') {
             ticketCostTotal = ticketNewCount * 150;
         }
-        if (ticket == 'general') {
+        if (ticket == 'economy') {
             ticketCostTotal = ticketNewCount * 100 ;
         } 
         document.getElementById(ticket +"-cost").innerHTML ='('+'$'+ticketCostTotal+')';
@@ -141,13 +141,13 @@
     }
     function calculateTotal() {
         var vipCount = getInputValue('vip');
-        var generalCount = getInputValue('general');
+        var generalCount = getInputValue('economy');
        
         var subTotalCost =  vipCount * 150 +  generalCount * 100;
         document.getElementById("sub-total").innerHTML = subTotalCost;
         
                  let vat = 25 ;
-                document.getElementById('vat-total').innerHTML = vat;
+                document.getElementById('vat').innerHTML = vat;
                 let total = subTotalCost + vat;
                 document.getElementById("total").innerHTML= total;
     }
